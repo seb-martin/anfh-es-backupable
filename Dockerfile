@@ -8,5 +8,9 @@ VOLUME /usr/share/elasticsearch/backups
 
 COPY docker-entrypoint.sh /
 
+RUN chown elasticsearch:elasticsearch "/docker-entrypoint.sh" ; \
+    chmod u+x "/docker-entrypoint.sh"
+
+
 ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["elasticsearch"]
